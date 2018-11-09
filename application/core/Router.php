@@ -39,14 +39,14 @@ namespace application\core;
 
 					$action = $this->params['action'].'Action';
 					if (method_exists($path, $action)) {
-						echo 'Экшен найден: <b>'.$action.'</b><br>';
+						echo 'Action found: <b>'.$action.'</b><br>';
 
 						$controller = new $path($this->params);
 						$controller->$action();
 					}
 
 					else {
-						echo 'Экшен НЕ найден: '.$action.'<br>';
+						echo 'Action NOT found: '.$action.'<br>';
 					}
 				}
 				else {
@@ -55,7 +55,7 @@ namespace application\core;
 
 			}
 			else {
-				echo 'Маршрут НЕ найден'.'<br>';
+				echo 'Route NOT found'.'<br>';
 			}
 		}
 
