@@ -2,6 +2,8 @@
 
 namespace application\core;
 
+use application\core\View;
+
 	class Router {
 
 		protected $routes = [];
@@ -35,27 +37,30 @@ namespace application\core;
 			if ($this->match()) {
 				$path = 'application\controllers\\'.ucfirst($this->params['controller']).'Controller';
 				if (class_exists($path)) {
-					echo 'Controller <b>'.$path.'</b> exists'.'<br>';
+					// echo 'Controller <b>'.$path.'</b> exists'.'<br>';
 
 					$action = $this->params['action'].'Action';
 					if (method_exists($path, $action)) {
-						echo 'Action found: <b>'.$action.'</b><br>';
+						// echo 'Action found: <b>'.$action.'</b><br>';
 
 						$controller = new $path($this->params);
 						$controller->$action();
 					}
 
 					else {
-						echo 'Action NOT found: '.$action.'<br>';
+						// echo 'Action NOT found: '.$action.'<br>';
+						View::errorCode(404);
 					}
 				}
 				else {
-					echo 'Controller <b>'.$path.'</b> NOT found'.'<br>';
+					// echo 'Controller <b>'.$path.'</b> NOT found'.'<br>';
+					View::errorCode(404);
 				}
 
 			}
 			else {
-				echo 'Route NOT found'.'<br>';
+				// echo 'Route NOT found'.'<br>';
+				View::errorCode(404);
 			}
 		}
 

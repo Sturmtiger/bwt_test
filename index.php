@@ -7,7 +7,9 @@ require 'application/lib/Dev.php';
 use application\core\Router;
 // require 'application/core/Router.php';
 
-spl_autoload_register(function($class){
+// require 'application/controllers/AccountController.php';
+
+spl_autoload_register(function($class) {
 	$path = str_replace("\\", '/', $class.'.php');
 	if (file_exists($path)) {
 		require $path;
