@@ -18,7 +18,7 @@ use application\core\View;
 		}
 
 		public function add($route, $params) {
-			$route = '#^'.$route.'$#';
+			$route = '#^'.$route.'$#'; // re
 			$this->routes[$route] = $params;
 		}
 

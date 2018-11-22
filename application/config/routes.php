@@ -17,4 +17,18 @@ return [
 		'action' => 'register',
 	],
 
+    'weather' => [
+        'controller' => 'weather',
+        'action' => 'getweather',
+    ],
+
+    'feedback/send' => [
+        'controller' => 'feedback',
+        'action' => 'send',
+    ],
+
+    'feedback/list' => [
+        'controller' => 'feedback',
+        'action' => 'list',
+    ],
 ];
