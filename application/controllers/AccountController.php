@@ -7,11 +7,11 @@ class AccountController extends Controller{
 
 	public function loginAction(){
 		// $this->view->redirect('/'); // перенаправление страницы
-		$this->view->render('Вход');
+		$this->view->render('Sign in');
 	}
 
 
 	public function registerAction(){
-		$this->view->render('Регистрация');
+		$this->view->render('Sign up');
 	}
 }

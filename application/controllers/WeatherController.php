@@ -15,7 +15,7 @@ class WeatherController extends Controller
 {
     public function getweatherAction()
     {
-        $this->view->render('Погода в Запорожье');
+        $this->view->render('Weather in ZP');
     }
 
 }

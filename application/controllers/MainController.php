@@ -22,7 +22,7 @@ class MainController extends Controller
 
 		// echo '<b>Главная страница</b><br>';
 		
-		$this->view->render('Главная страница');
+		$this->view->render('Home page');
 
 
 //		var_dump(Db::DB_Connect());

@@ -2,15 +2,10 @@
 
 return [
 
-//	'' => [
-//		'controller' => 'main',
-//		'action' => 'index',
-//	],
-
-    '' => [ //костыль
-        'controller' => 'account',
-        'action' => 'login',
-    ],
+	'' => [
+		'controller' => 'main',
+		'action' => 'index',
+	],
 
 	'account/login' => [
 		'controller' => 'account',   
@@ -22,7 +17,7 @@ return [
 		'action' => 'register',
 	],
 
-    'weather' => [
+    'weather/getweather' => [
         'controller' => 'weather',
         'action' => 'getweather',
     ],

@@ -15,11 +15,11 @@ class FeedbackController extends Controller
 {
     public function sendAction()
     {
-        $this->view->render('Отправить фидбэк');
+        $this->view->render('Send feedback');
     }
 
     public function listAction()
     {
-        $this->view->render('Список фидбэков');
+        $this->view->render('Feedback list');
     }
 }
