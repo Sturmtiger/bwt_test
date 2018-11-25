@@ -2,10 +2,15 @@
 
 return [
 
-	'' => [
-		'controller' => 'main',   
-		'action' => 'index',
-	],
+//	'' => [
+//		'controller' => 'main',
+//		'action' => 'index',
+//	],
+
+    '' => [ //костыль
+        'controller' => 'account',
+        'action' => 'login',
+    ],
 
 	'account/login' => [
 		'controller' => 'account',   

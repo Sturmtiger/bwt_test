@@ -1,1 +1,1 @@
-<p>Feedback list</p>
+<h1>FEEDBACK LIST (View)</h1>

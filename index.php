@@ -9,6 +9,8 @@ use application\core\Router;
 
 // require 'application/controllers/AccountController.php';
 
+include_once('application/template/header.php'); // header
+
 spl_autoload_register(function($class) {
 	$path = str_replace("\\", '/', $class.'.php');
 	if (file_exists($path)) {
