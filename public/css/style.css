@@ -3,7 +3,7 @@ body {
   height: 100%;
 }
 
-body {
+.border {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
@@ -17,11 +17,12 @@ body {
   width: 100%;
   max-width: 330px;
   padding: 15px;
-  margin: auto;
+  margin: 25px auto;
 }
 
-.form-signin .checkbox {
+.form-signin {
   font-weight: 400;
+  margin: auto;
 }
 .form-signin .form-control {
   position: relative;
