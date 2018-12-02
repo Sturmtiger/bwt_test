@@ -4,14 +4,13 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
+      <link rel="stylesheet" href="/application/template/css/style.css">
     <title>BWT_test</title>
   </head>
 
-  <body> 
+  <body class="text-center">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand m-b-0" href="/">BWT_test</a>
@@ -28,7 +27,7 @@
             <a class="nav-link" href="/account/register">Sign up</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/weather">Weather</a>
+            <a class="nav-link" href="/weather/getweather">Weather</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/feedback/send">Feedback</a>

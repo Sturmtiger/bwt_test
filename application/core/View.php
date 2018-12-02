@@ -7,22 +7,23 @@ class View {
 	public $path;
 	public $route;
 //	public $layout = 'default';
-	public $layout = 'header';
 
 	public function __construct($route) {
 		$this->route = $route;
 		$this->path = $route['controller'].'/'.$route['action'];
-		// echo $this->path;
+//		 echo $this->path;
 	}
 
-	public function render($title, $vars = []) {
-		extract($vars);
+	public function render($title) {
 		$path = 'application/views/'.$this->path.'.php';
 		if (file_exists($path)) {
-			ob_start();
-			require $path;
-			$content = ob_get_clean();
-			require'application/views/layouts/'.$this->layout.'.php';
+            require_once $path;
+
+
+//			ob_start();
+//			require $path;
+//			$content = ob_get_clean();
+//			require'application/views/layouts/'.$this->layout.'.php';
 		}
 		else {
 			echo "View NOT found";

@@ -1,1 +1,1 @@
-<p>SEND FEEDBACK (View)</p>
+<h1>SEND FEEDBACK (View)</h1>
