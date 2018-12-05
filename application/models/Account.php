@@ -14,6 +14,18 @@ class Account extends Model
 {
     public function __construct()
     {
+        parent::__construct();
         echo 'The Account Model is working';
     }
+
+    function signIn()
+    {
+
+    }
+
+    function signUp()
+    {
+
+    }
+
 }

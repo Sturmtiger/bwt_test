@@ -7,22 +7,31 @@ use PDO;
 
 class Db //Singleton
 {
+    private $db_connection;
+    private static $db_instance;
 
-    private static $db;
-
-    public static function DB_Connect()
+    private function __construct()
     {
-        if (!isset(self::$db))
-        {
-            $config = require 'application/config/db.php';
-            $dsn = 'mysql:host='.$config['host'].';dbname='.$config['dbname'];
-            self::$db = new PDO($dsn, $config['user'], $config['dbpassword']);
+        $config = require 'application/config/db.php';
+        $dsn = 'mysql:host='.$config['host'].';dbname='.$config['dbname'];
+        $this->db_connection = new PDO($dsn, $config['user'], $config['dbpassword']);
 
+    }
+
+    public static function getInstanceDB()
+    {
+        if (!isset(self::$db_instance))
+        {
+            self::$db_instance = new self();
         }
-        return self::$db;
+        return self::$db_instance;
+    }
+
+    public function getConnectionDB()
+    {
+        return $this->db_connection;
     }
 }
-
 
 
 //use PDO;
