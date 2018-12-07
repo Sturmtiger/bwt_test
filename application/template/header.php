@@ -27,13 +27,13 @@
             <a class="nav-link" href="/account/register">Sign up</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/weather/getweather">Weather</a>
+            <a class="nav-link" href="/weather/get-weather">Weather</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/feedback/send">Feedback</a>
+            <a class="nav-link" href="/feedback/send-feedback">Feedback</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/feedback/list">Feedlist</a>
+            <a class="nav-link" href="/feedback/feedback-list">Feedlist</a>
           </li>
         </ul>
       </div>

@@ -7,6 +7,7 @@ class View {
 	public $path;
 	public $route;
 //	public $layout = 'default';
+//	public $layout = 'header';
 
 	public function __construct($route) {
 		$this->route = $route;
@@ -23,7 +24,7 @@ class View {
 //			ob_start();
 //			require $path;
 //			$content = ob_get_clean();
-//			require'application/views/layouts/'.$this->layout.'.php';
+//			require 'application/views/layouts/'.$this->layout.'.php';
 		}
 		else {
 			echo "View NOT found";

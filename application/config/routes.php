@@ -12,22 +12,32 @@ return [
 		'action' => 'login',
 	],
 
+//    'account/is-authorized' => [
+//        'controller' => 'account',
+//        'action' => 'isAuthorized',
+//    ],
+
 	'account/register' => [
 		'controller' => 'account',   
 		'action' => 'register',
 	],
 
-    'weather/getweather' => [
+    //    'account/is-registered' => [
+//        'controller' => 'account',
+//        'action' => 'isRegistered',
+//    ],
+
+    'weather/get-weather' => [
         'controller' => 'weather',
         'action' => 'getweather',
     ],
 
-    'feedback/send' => [
+    'feedback/send-feedback' => [
         'controller' => 'feedback',
         'action' => 'send',
     ],
 
-    'feedback/list' => [
+    'feedback/feedback-list' => [
         'controller' => 'feedback',
         'action' => 'list',
     ],
