@@ -29,14 +29,20 @@ class AccountController extends Controller{
     {
         if (isset($_POST['register']))
         {
-            $name = trim($_POST['name']);
-            $surname = trim($_POST['surname']);
+            $name = ucfirst(trim($_POST['name']));
+            $surname = ucfirst(trim($_POST['surname']));
             $email = trim($_POST['email']);
             $gender = trim($_POST['gender']);
             $bday = trim($_POST['bday']);
             $password1 = trim($_POST['password1']);
             $password2 = trim($_POST['password2']);
 
+            if (empty($gender)) $gender = NULL;
+            if (empty($bday)) $bday = NULL;
+
+//            if $this->validator->validRegister() {}; // prepare validation and password encryption soon
+
+            $this->model->signUp($name, $surname, $email, $gender, $bday, $password1);
         }
 
 

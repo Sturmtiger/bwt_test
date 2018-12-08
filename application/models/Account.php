@@ -23,9 +23,20 @@ class Account extends Model
 
     }
 
-    function signUp()
+    function signUp($name, $surname, $email, $gender, $bday, $password)
     {
+        $reg_data = [
+            'name' => $name,
+            'surname' => $surname,
+            'email' => $email,
+            'gender' => $gender,
+            'bday' => $bday,
+            'password' => $password
+        ];
 
+        $sql = 'INSERT INTO users(name, surname, email, gender, bday, password) VALUES(:name, :surname, :email, :gender, :bday, :password)';
+        $stmt = self::$db->prepare($sql);
+        $stmt->execute($reg_data);
     }
 
 }

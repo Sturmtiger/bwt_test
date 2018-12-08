@@ -12,12 +12,12 @@
                   <input type="email" id="inputEmail" class="form-control" placeholder="Email*" name="email" required>
 
                     <select class="custom-select" name="gender">
-                        <option selected>Choose gender</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
+                        <option value="" selected>Choose gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
                    </select>
 
-                    <input class="input-group date text-center" type="date" name="bday" min="2001-01-01" max="1900-01-01">
+                    <input class="input-group date text-center" type="date" name="bday" min="1900-01-01" max="2001-01-01">
 
                   <label for="inputPassword1" class="sr-only">Password</label>
                   <input type="password" id="inputPassword1" class="form-control" placeholder="Password*" name="password1" required>

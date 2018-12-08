@@ -13,8 +13,13 @@ class Db //Singleton
     private function __construct()
     {
         $config = require 'application/config/db.php';
-        $dsn = 'mysql:host='.$config['host'].';dbname='.$config['dbname'];
-        $this->db_connection = new PDO($dsn, $config['user'], $config['dbpassword']);
+        $opt = [
+            PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_EMULATE_PREPARES   => false,
+        ];
+        $dsn = "mysql:host={$config['host']};dbname={$config['dbname']};";
+        $this->db_connection = new PDO($dsn, $config['user'], $config['dbpassword'], $opt);
 
     }
 

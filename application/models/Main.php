@@ -8,6 +8,7 @@ class Main extends Model
 {
 	public function __construct()
     {
+        parent::__construct();
 		echo 'The Main Model is working';
 	}
 }
