@@ -4,7 +4,6 @@ namespace application\lib;
 
 use PDO;
 
-
 class Db //Singleton
 {
     private $db_connection;
@@ -37,7 +36,6 @@ class Db //Singleton
         return $this->db_connection;
     }
 }
-
 
 //use PDO;
 //class Db {

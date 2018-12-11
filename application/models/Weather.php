@@ -15,6 +15,6 @@ class Weather extends Model
     public function __construct()
     {
         parent::__construct();
-        echo 'The Weather Model is working';
+//        echo 'The Weather Model is working';
     }
 }

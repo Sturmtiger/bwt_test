@@ -15,6 +15,6 @@ class Feedback extends Model
     public function __construct()
     {
         parent::__construct();
-        echo 'The Feedback Model is working';
+//        echo 'The Feedback Model is working';
     }
 }
