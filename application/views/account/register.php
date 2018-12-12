@@ -20,10 +20,10 @@
                     <input class="input-group date text-center" type="date" name="bday" min="1900-01-01" max="2001-01-01">
 
                   <label for="inputPassword1" class="sr-only">Password</label>
-                  <input type="password" id="inputPassword1" class="form-control" placeholder="Password*" name="password1" required>
+                  <input type="password" id="inputPassword1" class="form-control" placeholder="Password*" name="password" required>
 
                   <label for="inputPassword2" class="sr-only">Confirm password</label>
-                  <input type="password" id="inputPassword2" class="form-control" placeholder="Confirm password*" name="password2" required>
+                  <input type="password" id="inputPassword2" class="form-control" placeholder="Confirm password*" name="cpassword" required>
 
                   <button class="btn btn-lg btn-primary btn-block" type="submit" name="register">Sign up</button>
                 </form>

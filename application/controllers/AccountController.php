@@ -13,11 +13,25 @@ class AccountController extends Controller{
             $email = trim($_POST['email']);
             $password = trim($_POST['password']);
 
+            $result_msg = '';
+
+            $authorize = $this->model->signIn($email, $password);
+            if (null !== $authorize)
+            {
+                var_dump($authorize); // test
+
+                // there is a session data must be here
+
+//                $this->view->redirect('/');
+            } else {
+//                $result_msg = 'Email or password is incorrect!';
+                echo 'Email or password is incorrect!';
+            }
+
 
         }
 
-
-        // $this->view->redirect('/'); // page redirection
+//         $this->view->redirect('/'); // page redirection
 		$this->view->render('Sign in');
 	}
 
@@ -35,23 +49,27 @@ class AccountController extends Controller{
             $email = trim($_POST['email']);
             $gender = $_POST['gender'];
             $bday = $_POST['bday'];
-            $password1 = trim($_POST['password1']);
-            $password2 = trim($_POST['password2']);
+            $password = trim($_POST['password']);
+            $cpassword = trim($_POST['cpassword']);
 
-            $result_msg = '';
+            $result_msg = [];
 
-            if (empty($gender)) $gender = NULL;
-            if (empty($bday)) $bday = NULL;
 
-            if ($this->validator->validRegister($name, $surname, $email, $password1, $password2, $result_msg))
+            if ($this->validator->validRegister($name, $surname, $email, $password, $cpassword, $result_msg))
             {
+                if (empty($gender)) $gender = null;
+                if (empty($bday)) $bday = null;
+
                 try
                 {
-                    $this->model->signUp($name, $surname, $email, $gender, $bday, $password1);
+                    $this->model->signUp($name, $surname, $email, $gender, $bday, $password);
+//                    $result_msg['success'] = 'You have been successfully registered:) <a href='/account/login'>Log in?</a>';
+                    echo "<br><b>You have been successfully registered:) <a href='/account/login'>Log in?</a></b>";
                 }
                 catch (\PDOException $e) // duplicate key error(email): 1062
                 {
-                    echo "<br><b>This email already exists</b>"; // test
+//                    $result_msg['error'] = 'This email already exists!';
+                    echo "<br><b>This email already exists!</b>"; // test
                 }
             }
         }
