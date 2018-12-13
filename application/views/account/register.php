@@ -1,5 +1,5 @@
         <span class="border">
-                <form class="form-signin" action="/account/register" method="POST">
+                <form class="form-signin" action="/account/register" method="post">
                   <h1 class="h3 mb-3 font-weight-normal">Register</h1>
 
                   <label for="inputName" class="sr-only">Name</label>

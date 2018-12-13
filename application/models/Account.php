@@ -17,13 +17,6 @@ class Account extends Model
         parent::__construct();
 //        echo 'The Account Model is working';
 
-
-//        $email = 'maksim155555@gmail.com';
-//        $sql = 'SELECT * FROM users WHERE id = 324';
-//        $stmt = self::$db->prepare($sql);
-//        $stmt->execute();
-//        var_dump($stmt->fetch());
-
     }
 
     function signIn($email, $password)

@@ -8,21 +8,26 @@ class AccountController extends Controller{
 
 	public function loginAction() // authorize page
     {
-        if (isset($_POST['authorize']))
+        $result_msg = null;
+
+        if (isset($_POST['authorize'])) // for authorize
         {
             $email = trim($_POST['email']);
             $password = trim($_POST['password']);
 
-            $result_msg = '';
+//            $result_msg = null;
 
             $authorize = $this->model->signIn($email, $password);
             if (null !== $authorize)
             {
-                var_dump($authorize); // test
+//                var_dump($authorize); // test
 
                 // there is a session data must be here
+                $_SESSION['email'] = $authorize['email'];
+                $_SESSION['name'] = $authorize['name'];
+                $_SESSION['surname'] = $authorize['surname'];
 
-//                $this->view->redirect('/');
+                $this->view->redirect('/');
             } else {
 //                $result_msg = 'Email or password is incorrect!';
                 echo 'Email or password is incorrect!';
@@ -31,6 +36,10 @@ class AccountController extends Controller{
 
         }
 
+        if (isset($_POST['logout']))
+        {
+            session_unset();
+        }
 //         $this->view->redirect('/'); // page redirection
 		$this->view->render('Sign in');
 	}
@@ -42,6 +51,8 @@ class AccountController extends Controller{
 
 	public function registerAction() // register page
     {
+//        $result_msg = null; // array
+
         if (isset($_POST['register']))
         {
             $name = mb_convert_case(trim($_POST['name']), MB_CASE_TITLE, "UTF-8");
@@ -52,7 +63,7 @@ class AccountController extends Controller{
             $password = trim($_POST['password']);
             $cpassword = trim($_POST['cpassword']);
 
-            $result_msg = [];
+//            $result_msg = [];
 
 
             if ($this->validator->validRegister($name, $surname, $email, $password, $cpassword, $result_msg))
@@ -63,7 +74,7 @@ class AccountController extends Controller{
                 try
                 {
                     $this->model->signUp($name, $surname, $email, $gender, $bday, $password);
-//                    $result_msg['success'] = 'You have been successfully registered:) <a href='/account/login'>Log in?</a>';
+//                    $result_msg['success'] = 'You have been successfully registered:) <a href="/account/login">Log in?</a>';
                     echo "<br><b>You have been successfully registered:) <a href='/account/login'>Log in?</a></b>";
                 }
                 catch (\PDOException $e) // duplicate key error(email): 1062
@@ -74,9 +85,6 @@ class AccountController extends Controller{
             }
         }
 
-
-
-        // $this->view->redirect('/account/login'); // page redirection
 		$this->view->render('Sign up');
     }
 

@@ -5,11 +5,13 @@ require 'application/lib/Dev.php';
 
 
 use application\core\Router;
-// require 'application/core/Router.php';
 
+// require 'application/core/Router.php';
 // require 'application/controllers/AccountController.php';
 
-include_once('application/template/header.php'); // header
+session_start();
+
+//include_once('application/views/layouts/header.php'); // header test
 
 spl_autoload_register(function($class) {
 	$path = str_replace("\\", '/', $class.'.php');
@@ -18,7 +20,8 @@ spl_autoload_register(function($class) {
 	}
 });
 
-// session_start();
 
 $router = new Router;
 $router->run();
+
+var_dump($_SESSION);

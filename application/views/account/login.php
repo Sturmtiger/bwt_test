@@ -1,5 +1,5 @@
         <span class="border">
-                <form class="form-signin" action="/account/login" method="POST">
+                <form class="form-signin" action="/account/login" method="post">
                   <h1 class="h3 mb-3 font-weight-normal">Authorize</h1>
 
                   <label for="inputEmail" class="sr-only">Email address*</label>

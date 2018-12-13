@@ -6,8 +6,7 @@ class View {
 
 	public $path;
 	public $route;
-//	public $layout = 'default';
-//	public $layout = 'header';
+	public $layout = 'header';
 
 	public function __construct($route) {
 		$this->route = $route;
@@ -18,13 +17,13 @@ class View {
 	public function render($title) {
 		$path = 'application/views/'.$this->path.'.php';
 		if (file_exists($path)) {
-            require_once $path;
+//            require_once $path;
 
 
-//			ob_start();
-//			require $path;
-//			$content = ob_get_clean();
-//			require 'application/views/layouts/'.$this->layout.'.php';
+			ob_start();
+			require_once $path;
+			$content = ob_get_clean();
+			require_once 'application/views/layouts/'.$this->layout.'.php';
 		}
 		else {
 			echo "View NOT found";
