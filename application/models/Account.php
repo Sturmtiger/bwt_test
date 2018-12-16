@@ -16,7 +16,6 @@ class Account extends Model
     {
         parent::__construct();
 //        echo 'The Account Model is working';
-
     }
 
     function signIn($email, $password)

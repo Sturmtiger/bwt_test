@@ -6,22 +6,19 @@ use application\core\Controller;
 //use PDOException; // or backslash before a function for call the function
 class AccountController extends Controller{
 
+    private $result_msg; // for query result(error/access)
+
 	public function loginAction() // authorize page
     {
-        $result_msg = null;
 
         if (isset($_POST['authorize'])) // for authorize
         {
             $email = trim($_POST['email']);
             $password = trim($_POST['password']);
-
-//            $result_msg = null;
-
             $authorize = $this->model->signIn($email, $password);
+
             if (null !== $authorize)
             {
-//                var_dump($authorize); // test
-
                 // there is a session data must be here
                 $_SESSION['email'] = $authorize['email'];
                 $_SESSION['name'] = $authorize['name'];
@@ -29,19 +26,18 @@ class AccountController extends Controller{
 
                 $this->view->redirect('/');
             } else {
-//                $result_msg = 'Email or password is incorrect!';
-                echo 'Email or password is incorrect!';
+                $this->result_msg = 'Email or password is incorrect!';
+//                echo 'Email or password is incorrect!';
             }
-
 
         }
 
-        if (isset($_POST['logout']))
+        if (isset($_POST['logout'])) // for logout
         {
             session_unset();
         }
-//         $this->view->redirect('/'); // page redirection
-		$this->view->render('Sign in');
+
+		$this->view->render('Sign in', $this->result_msg);
 	}
 
 //    public function isAuthorizedAction() // authorization processing
@@ -51,7 +47,6 @@ class AccountController extends Controller{
 
 	public function registerAction() // register page
     {
-//        $result_msg = null; // array
 
         if (isset($_POST['register']))
         {
@@ -63,10 +58,8 @@ class AccountController extends Controller{
             $password = trim($_POST['password']);
             $cpassword = trim($_POST['cpassword']);
 
-//            $result_msg = [];
 
-
-            if ($this->validator->validRegister($name, $surname, $email, $password, $cpassword, $result_msg))
+            if ($this->validator->validRegister($name, $surname, $email, $password, $cpassword, $this->result_msg))
             {
                 if (empty($gender)) $gender = null;
                 if (empty($bday)) $bday = null;
@@ -74,18 +67,17 @@ class AccountController extends Controller{
                 try
                 {
                     $this->model->signUp($name, $surname, $email, $gender, $bday, $password);
-//                    $result_msg['success'] = 'You have been successfully registered:) <a href="/account/login">Log in?</a>';
-                    echo "<br><b>You have been successfully registered:) <a href='/account/login'>Log in?</a></b>";
+                    $this->result_msg['success'] = 'You have been successfully registered:) <a href="/account/login">Log in?</a>';
+//                    echo "<br><b>You have been successfully registered:) <a href='/account/login'>Log in?</a></b>";
                 }
                 catch (\PDOException $e) // duplicate key error(email): 1062
                 {
-//                    $result_msg['error'] = 'This email already exists!';
-                    echo "<br><b>This email already exists!</b>"; // test
+                    $this->result_msg['error'] = 'This email already exists!';
+//                    echo "<br><b>This email already exists!</b>"; // test
                 }
             }
         }
-
-		$this->view->render('Sign up');
+		$this->view->render('Sign up', $this->result_msg);
     }
 
 //	public function isRegisteredAction() // register processing

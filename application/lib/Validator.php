@@ -21,29 +21,29 @@ class Validator
 
             if (!preg_match('/^[a-zA-Zа-яА-Я]*$/u', $name)) // name validation(rus/en)
             {
-//                $result_msg['error'] = 'Invalid name format!';
-                echo 'Invalid name format!';
+                $result_msg['error'] = 'Invalid name format!';
+//                echo 'Invalid name format!';
             }
-            elseif (!preg_match('/^[a-zA-Zа-яА-Я-]*$/u', $surname)) // surname validation(rus/en)
+            elseif (!preg_match('/^[a-zA-Zа-яА-Я- ]*$/u', $surname)) // surname validation(rus/en)
             {
-//                $result_msg['error'] = 'Invalid surname format!';
-                echo 'Invalid surname format!';
+                $result_msg['error'] = 'Invalid surname format!';
+//                echo 'Invalid surname format!';
             }
             elseif (!filter_var("$email", FILTER_VALIDATE_EMAIL)) // email validation
             {
-//                $result_msg['error'] = 'Invalid email format!';
-                echo 'Invalid email format!';
+                $result_msg['error'] = 'Invalid email format!';
+//                echo 'Invalid email format!';
             }
             elseif (null !== $valid_password) //password validation
             {
-//                $result_msg['error'] = $valid_password;
-                echo $valid_password;
+                $result_msg['error'] = $valid_password;
+//                echo $valid_password;
             } else {
                 return true;
             }
         } else {
-//            $result_msg['error'] = 'Fill all the fields!';
-            echo 'Fill all the fields!';
+            $result_msg['error'] = 'Fill all the fields!';
+//            echo 'Fill all the fields!';
         }
         return false;
     }

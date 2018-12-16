@@ -14,12 +14,9 @@ class View {
 //		 echo $this->path;
 	}
 
-	public function render($title) {
+	public function render($title, $result_msg=null) {
 		$path = 'application/views/'.$this->path.'.php';
 		if (file_exists($path)) {
-//            require_once $path;
-
-
 			ob_start();
 			require_once $path;
 			$content = ob_get_clean();
