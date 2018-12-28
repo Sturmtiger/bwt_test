@@ -1,5 +1,5 @@
         <span class="border">
-                <form class="form-signin" action="/account/login" method="post">
+                <form class="form-css" action="/account/login" method="post">
                     <h1 class="h3 mb-3 font-weight-normal">Authorize</h1>
 
                     <label for="inputEmail" class="sr-only">Email address*</label>
@@ -9,10 +9,6 @@
                     <input type="password" id="inputPassword1" class="form-control" placeholder="Password" name="password" required>
 
                      <button class="btn btn-lg btn-primary btn-block" type="submit" name="authorize">Sign in</button>
-                    <?php if (isset($result_msg)) echo $result_msg;?>
+                    <?php if (isset($result_msg)) echo "<p class='error-msg'>$result_msg</p>";?>
                 </form>
         </span>
-
-
-    </body>
-</html>

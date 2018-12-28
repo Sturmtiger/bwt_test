@@ -21,7 +21,7 @@
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="/account/login">Sign in</a>
+            <a class="nav-link" href="/account/login">Log in</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/account/register">Sign up</a>
@@ -37,16 +37,11 @@
           </li>
         </ul>
 
-          <?php
-          if (isset($_SESSION['email']) && isset($_SESSION['name']) && isset($_SESSION['surname']))
-            { ?>
+          <?php if (isset($_SESSION['email']) && isset($_SESSION['name']) && isset($_SESSION['surname'])):?>
                 <form class="form-inline my-2 my-lg-0" action="/account/login" method="post">
-    <!--              <span style="color: white;" class="">Max Maxov</span>-->
-                    <button type="submit" class="btn btn-danger my-2 my-sm-0" name="logout">Log out <b>(<?="{$_SESSION['name']} {$_SESSION['surname']}"; ?>)</b></button>
-    <!--                                      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+                    <button type="submit" class="btn btn-danger my-2 my-lg-0" name="logout">Log out <b>(<?="{$_SESSION['name']} {$_SESSION['surname']}"; ?>)</b></button>
               </form>
-    <!--          <a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a>-->
-            <?php } ?>
+            <?php endif; ?>
       </div>
     </nav>
 

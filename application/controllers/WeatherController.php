@@ -15,7 +15,12 @@ class WeatherController extends Controller
 {
     public function getweatherAction()
     {
-        $this->view->render('Weather in ZP');
+        if (isset($_SESSION['email']) && isset($_SESSION['name']) && isset($_SESSION['surname']))
+        {
+            $weather_data = $this->model->getWeather();
+            $this->view->render('Weather in ZP-City', $result_msg=null, $data=$weather_data);
+        } else {
+            $this->view->render('Weather in ZP-City');
+        }
     }
-
 }

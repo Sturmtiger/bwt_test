@@ -17,4 +17,25 @@ class Feedback extends Model
         parent::__construct();
 //        echo 'The Feedback Model is working';
     }
+
+    function sendFeedback($name, $email, $message)
+    {
+        $feedback_input = [
+            'name' => $name,
+            'email' => $email,
+            'message' => $message
+        ];
+
+        $sql = 'INSERT INTO feedbacks (name, email, message) VALUES(:name, :email, :message)';
+        $stmt = self::$db->prepare($sql);
+        $stmt->execute($feedback_input);
+    }
+
+    function getFeeds()
+    {
+        $sql = 'SELECT * FROM feedbacks';
+        $stmt = self::$db->query($sql);
+        $db_ans = $stmt->fetchAll();
+        return $db_ans;
+    }
 }

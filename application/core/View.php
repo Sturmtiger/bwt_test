@@ -14,7 +14,12 @@ class View {
 //		 echo $this->path;
 	}
 
-	public function render($title, $result_msg=null) {
+	public function render($title, $result_msg=null, $data=null) {
+        /**
+         * $title - the title of the html page
+         * $result_msg(optional) - result message for register, authorization operations etc.
+         * $data(optional) - variable that should contain the data of the weather parse
+         */
 		$path = 'application/views/'.$this->path.'.php';
 		if (file_exists($path)) {
 			ob_start();

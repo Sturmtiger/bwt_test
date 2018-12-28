@@ -11,7 +11,14 @@ namespace application\lib;
 
 class Validator
 {
-
+    private function validPassword($password, $cpassword) // for register validation
+    {
+        if (strlen($password) < 10) return 'The length of the password must be not less than 10!';
+        if ($password != $cpassword) return 'The passwords do not match!';
+        if (preg_match('/ /', $password)) return 'The password must not contain whitespaces!';
+        if (!preg_match('/[0-9]+/', $password)) return 'The password must contain at least 1 number!';
+//        if (!preg_match('/[a-zA-Z]{3,}/', $password)) return 'The password must contain at least 3 letters!';
+    }
 
     public function validRegister($name, $surname, $email, $password, $cpassword, &$result_msg)
     {
@@ -48,13 +55,28 @@ class Validator
         return false;
     }
 
-
-    private function validPassword($password, $cpassword)
+    public function validFeedback($name, $email, $message, &$result_msg)
     {
-        if (strlen($password) < 10) return 'The length of the password must be not less than 10!';
-        if ($password != $cpassword) return 'The passwords do not match!';
-        if (preg_match('/ /', $password)) return 'The password must not contain whitespaces!';
-        if (!preg_match('/[0-9]+/', $password)) return 'The password must contain at least 1 number!';
-//        if (!preg_match('/[a-zA-Z]{3,}/', $password)) return 'The password must contain at least 3 letters!';
+        if (!empty($name) && !empty($email) && !empty($message))
+        {
+            if (strlen($name) < 2) // name validation(rus/en + numbers)
+            {
+                $result_msg['error'] = 'The name must contain at least 2 characters!';
+            }
+            elseif (!filter_var("$email", FILTER_VALIDATE_EMAIL)) // email validation
+            {
+                $result_msg['error'] = 'Invalid email format!';
+            }
+            elseif (strlen($message) < 2)
+            {
+                $result_msg['error'] = 'The message must contain at least 2 characters!';
+            } else {
+                return true;
+            }
+        } else {
+            $result_msg['error'] = 'Fill all the fields!';
+        }
+        return false;
     }
+
 }

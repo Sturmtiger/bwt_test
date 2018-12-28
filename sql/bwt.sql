@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Дек 14 2018 г., 01:27
+-- Время создания: Дек 28 2018 г., 03:10
 -- Версия сервера: 5.6.41
 -- Версия PHP: 7.1.22
 
@@ -25,13 +25,33 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `feedbacks`
+--
+
+CREATE TABLE `feedbacks` (
+  `id` int(9) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `email` varchar(40) NOT NULL,
+  `message` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `feedbacks`
+--
+
+INSERT INTO `feedbacks` (`id`, `name`, `email`, `message`) VALUES
+(1, 'Max Sturmtiger', 'maksim155555@gmail.com', 'lol kek');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `users`
 --
 
 CREATE TABLE `users` (
-  `id` int(2) NOT NULL,
-  `name` varchar(30) NOT NULL,
-  `surname` varchar(30) NOT NULL,
+  `id` int(3) NOT NULL,
+  `name` char(30) NOT NULL,
+  `surname` char(30) NOT NULL,
   `email` varchar(40) NOT NULL,
   `gender` varchar(6) DEFAULT NULL,
   `bday` date DEFAULT NULL,
@@ -43,14 +63,17 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `surname`, `email`, `gender`, `bday`, `password`) VALUES
-(45, 'Антон', 'Лошаренко', 'anthony@gmail.com', 'Male', NULL, '$2y$10$fY78xKj5lqr0Jqi0SmYJvuXzseUU8hCHvZHH0qvq.npuAayu2wjBO'),
-(48, 'Verh', 'Sturm', 'verh@gmail.com', 'Male', '1976-11-11', '$2y$10$3MWi6ow.mWyxM/XIbEzoWuWwzPufovLCXIfME7vcQlPPg0iN6AG8a'),
-(51, 'Антон', 'Sturm', 'Ekozdlik@mail.rus', NULL, NULL, '$2y$10$vpAOYELc0dWGc.93Xvn7G.sMN3FhxEqorUdA6V8nfxIrEmnx924RC'),
-(53, 'Fritz', 'Schultze', 'waffen@gmail.com', 'Male', '1980-11-11', '$2y$10$1XyE7niroH8rh065XcUXHucaYxxqG5E10LkY6BeLU0yF9MTTFKRVy');
+(1, 'Max', 'Sturmtiger', 'maksim155555@gmail.com', 'Male', '1939-07-21', '$2y$10$Uw5Vd33CYRYXijfSqMttTuF8UK4kVfhMmueUA4621cCK3HknA9x4G');
 
 --
 -- Индексы сохранённых таблиц
 --
+
+--
+-- Индексы таблицы `feedbacks`
+--
+ALTER TABLE `feedbacks`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Индексы таблицы `users`
@@ -64,10 +87,16 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT для таблицы `feedbacks`
+--
+ALTER TABLE `feedbacks`
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

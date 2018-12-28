@@ -12,6 +12,8 @@ session_start();
 
 //include_once('application/views/layouts/header.php'); // header test
 
+require 'vendor/autoload.php';
+
 spl_autoload_register(function($class) {
 	$path = str_replace("\\", '/', $class.'.php');
 	if (file_exists($path)) {
@@ -22,5 +24,3 @@ spl_autoload_register(function($class) {
 
 $router = new Router;
 $router->run();
-
-var_dump($_SESSION);

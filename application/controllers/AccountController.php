@@ -4,7 +4,8 @@ namespace application\controllers;
 use application\core\Controller;
 
 //use PDOException; // or backslash before a function for call the function
-class AccountController extends Controller{
+class AccountController extends Controller
+{
 
     private $result_msg; // for query result(error/access)
 
@@ -37,7 +38,7 @@ class AccountController extends Controller{
             session_unset();
         }
 
-		$this->view->render('Sign in', $this->result_msg);
+		$this->view->render('Log in', $this->result_msg);
 	}
 
 //    public function isAuthorizedAction() // authorization processing
