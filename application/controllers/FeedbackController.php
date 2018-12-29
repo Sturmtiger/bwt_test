@@ -26,7 +26,7 @@ class FeedbackController extends Controller
             if ($this->validator->validFeedback($name, $email, $message,$this->result_msg))
             {
                 $this->model->sendFeedback($name, $email, $message);
-                $this->result_msg['success'] = 'The feedback has been successfully sent!';
+                $this->result_msg['success'] = 'Your feedback has been successfully sent!';
             }
         }
         $this->view->render('Send feedback', $this->result_msg);
@@ -34,6 +34,14 @@ class FeedbackController extends Controller
 
     public function listAction()
     {
-        $this->view->render('Feedback list');
+        if (isset($_SESSION['email']) && isset($_SESSION['name']) && isset($_SESSION['surname']))
+        {
+            $feed_data = $this->model->getFeeds();
+            $this->view->render('Feedback list', $result_msg=null, $data=$feed_data);
+        }
+        else
+        {
+            $this->view->render('Feedback list');
+        }
     }
 }

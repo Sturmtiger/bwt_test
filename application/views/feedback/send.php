@@ -1,3 +1,4 @@
+<script src='https://www.google.com/recaptcha/api.js'></script>
 
 <span class="border">
                 <form class="form-css" action="/feedback/send-feedback" method="post">
@@ -13,6 +14,9 @@
                     <textarea id="inputMessage" class="form-control" placeholder="Your message*" name="message" required></textarea>
 
                      <button class="btn btn-lg btn-primary btn-block" type="submit" name="send-feed">Send</button>
+
+                    <div class="g-recaptcha" data-sitekey="6LeoXoUUAAAAAKKfSE1OTg1J0xRJ8fQHCX4iVq_v"></div>
+
                     <?php if (isset($result_msg))
                     {
                         echo (array_key_exists('error', $result_msg)) ? "<p class='error-msg'>{$result_msg['error']}</p>" : "<p class='success-msg'>{$result_msg['success']}</p>"; // output query result
@@ -20,16 +24,6 @@
                     ?>
                 </form>
         </span>
-
-
-
-
-
-
-
-
-
-
 
 
 

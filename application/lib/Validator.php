@@ -55,11 +55,24 @@ class Validator
         return false;
     }
 
+    private function validCaptcha() // for feedback validation
+    {
+        $url = 'https://www.google.com/recaptcha/api/siteverify';
+        $key = '6LeoXoUUAAAAADpuyzrI2nXNdaKcLOE0Y4SITZGc';
+        $query = "{$url}?secret={$key}&response={$_POST['g-recaptcha-response']}";
+        $api_access_result = json_decode(file_get_contents($query))->success; // bool
+        return ($api_access_result) ? true : false;
+    }
+
     public function validFeedback($name, $email, $message, &$result_msg)
     {
         if (!empty($name) && !empty($email) && !empty($message))
         {
-            if (strlen($name) < 2) // name validation(rus/en + numbers)
+            if (!$this->validCaptcha()) // if not access(false)
+            {
+                $result_msg['error'] = 'reCaptcha error!';
+            }
+            elseif (strlen($name) < 2) // name validation(rus/en + numbers)
             {
                 $result_msg['error'] = 'The name must contain at least 2 characters!';
             }
