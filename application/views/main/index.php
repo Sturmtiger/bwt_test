@@ -1,1 +1,1 @@
-<h1>Главная страница View</h1>
+<h1 class="mt-4">Main page (View)</h1>

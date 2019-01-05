@@ -40,7 +40,7 @@ class View {
 
 	public static function errorCode($code) {
 		http_response_code($code);
-		$path = 'application/views/errors/'.$code.'.php';
+		$path = 'application/views/errors/'.$code.'.html';
 		if (file_exists($path)) {
 			require $path;
 			exit;			

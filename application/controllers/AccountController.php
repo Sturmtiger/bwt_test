@@ -41,11 +41,6 @@ class AccountController extends Controller
 		$this->view->render('Log in', $this->result_msg);
 	}
 
-//    public function isAuthorizedAction() // authorization processing
-//    {
-//
-//    }
-
 	public function registerAction() // register page
     {
 
@@ -80,9 +75,4 @@ class AccountController extends Controller
         }
 		$this->view->render('Sign up', $this->result_msg);
     }
-
-//	public function isRegisteredAction() // register processing
-//    {
-//
-//    }
-    }
+}

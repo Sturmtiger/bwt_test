@@ -41,7 +41,35 @@ body {
 }
 
 .form-css button[type="submit"] {
-  margin-top: 30px;
+  margin: 5% auto;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+
+
+
+
+.error-msg {
+  font-weight: bold;
+  color: #ff2038;
+}
+.success-msg {
+  font-weight: bold;
+  color: #38ff6c;
+}
+.no-access {
+  color: #ff2038;
+}
+
+
+
+
+.feedlist{
+  background-color: #f5f5f5;
+  border: 1px solid #dee2e6!important;
+}
+.feedlist > textarea {
+  width: 95%;
+  height: 100px;
 }

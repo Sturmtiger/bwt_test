@@ -1,3 +1,4 @@
+<script src="/application/views/layouts/js/feedback.js"></script> <!-- js validation -->
 <script src='https://www.google.com/recaptcha/api.js'></script>
 
 <span class="border">
@@ -13,7 +14,7 @@
                     <label for="inputMessage" class="sr-only">Your message*</label>
                     <textarea id="inputMessage" class="form-control" placeholder="Your message*" name="message" required></textarea>
 
-                     <button class="btn btn-lg btn-primary btn-block" type="submit" name="send-feed">Send</button>
+                     <button class="btn btn-lg btn-primary btn-block" type="submit" name="send-feed" onclick="return feedback_valid(this.form);">Send</button>
 
                     <div class="g-recaptcha" data-sitekey="6LeoXoUUAAAAAKKfSE1OTg1J0xRJ8fQHCX4iVq_v"></div>
 
@@ -24,63 +25,3 @@
                     ?>
                 </form>
         </span>
-
-
-
-
-
-
-
-
-
-
-
-<!--<div class="container">-->
-<!--    <h2 class="text-center">Contac Form</h2>-->
-<!--    <div class="row justify-content-center">-->
-<!--        <div class="col-12 col-md-8 col-lg-6 pb-5">-->
-<!---->
-<!---->
-            <!--Form with header-->
-<!---->
-<!--            <form action="mail.php" method="post">-->
-<!--                <div class="card border-primary rounded-0">-->
-<!--                    <div class="card-header p-0">-->
-<!--                        <div class="bg-info text-white text-center py-2">-->
-<!--                            <h3><i class="fa fa-envelope"></i> Contactanos</h3>-->
-<!--                            <p class="m-0">Con gusto te ayudaremos</p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="card-body p-3">-->
-<!---->
-                        <!--Body-->
-<!--                        <div class="form-group">-->
-<!--                            <div class="input-group mb-2">-->
-<!--                                <input type="text" class="form-control" id="nombre" name="name" placeholder="Name" required>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="form-group">-->
-<!--                            <div class="input-group mb-2">-->
-<!--                                <input type="email" class="form-control" id="nombre" name="email" placeholder="email" required>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!---->
-<!--                        <div class="form-group">-->
-<!--                            <div class="input-group mb-2">-->
-<!--                                <textarea class="form-control" placeholder="Message" name="message" required></textarea>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!---->
-<!--                        <div class="text-center">-->
-<!--                            <input type="submit" value="Send" class="btn btn-info btn-block rounded-0 py-2">-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!---->
-<!--                </div>-->
-<!--            </form>-->
-            <!--Form with header-->
-<!---->
-<!---->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->

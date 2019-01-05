@@ -12,20 +12,10 @@ return [
 		'action' => 'login',
 	],
 
-//    'account/is-authorized' => [
-//        'controller' => 'account',
-//        'action' => 'isAuthorized',
-//    ],
-
 	'account/register' => [
 		'controller' => 'account',   
 		'action' => 'register',
 	],
-
-    //    'account/is-registered' => [
-//        'controller' => 'account',
-//        'action' => 'isRegistered',
-//    ],
 
     'weather/get-weather' => [
         'controller' => 'weather',

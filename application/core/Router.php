@@ -6,8 +6,8 @@ use application\core\View;
 	class Router
     {
 
-		protected $routes = [];
-		protected $params = [];
+		private $routes = [];
+		private $params = [];
 		
 		public function __construct()
         {
@@ -19,13 +19,13 @@ use application\core\View;
 			// debug($this->routes);
 		}
 
-		public function add($route, $params)
+		private function add($route, $params)
         {
 			$route = '#^'.$route.'$#'; // re (or "~$route~", "/$route/",  "#$route#")
 			$this->routes[$route] = $params;
 		}
 
-		public function match()
+		private function match()
         {
 			$url = trim($_SERVER['REQUEST_URI'], '/');
 			foreach ($this->routes as $route => $params)

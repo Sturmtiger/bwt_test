@@ -18,7 +18,7 @@ class Account extends Model
 //        echo 'The Account Model is working';
     }
 
-    function signIn($email, $password)
+    public function signIn($email, $password)
     {
         $authorize_input = [
           'email' => $email
@@ -37,7 +37,7 @@ class Account extends Model
         }
     }
 
-    function signUp($name, $surname, $email, $gender, $bday, $password)
+    public function signUp($name, $surname, $email, $gender, $bday, $password)
     {
         $password = password_hash($password, PASSWORD_DEFAULT); // password hashing
 

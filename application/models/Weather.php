@@ -20,7 +20,7 @@ class Weather extends Model
 //        echo 'The Weather Model is working';
     }
 
-    function getWeather()
+    public function getWeather()
     {
         $client = new Client([
             'headers' => [

@@ -18,7 +18,7 @@ class Feedback extends Model
 //        echo 'The Feedback Model is working';
     }
 
-    function sendFeedback($name, $email, $message)
+    public function sendFeedback($name, $email, $message)
     {
         $feedback_input = [
             'name' => $name,
@@ -31,7 +31,7 @@ class Feedback extends Model
         $stmt->execute($feedback_input);
     }
 
-    function getFeeds()
+    public function getFeeds()
     {
         $sql = 'SELECT * FROM feedbacks';
         $stmt = self::$db->query($sql);

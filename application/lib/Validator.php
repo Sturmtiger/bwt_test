@@ -36,6 +36,14 @@ class Validator
                 $result_msg['error'] = 'Invalid surname format!';
 //                echo 'Invalid surname format!';
             }
+            elseif (strlen($name) < 2) // name validation
+            {
+                $result_msg['error'] = 'The name must contain at least 2 characters!';
+            }
+            elseif (strlen($surname) < 2) // surname validation
+            {
+                $result_msg['error'] = 'The surname must contain at least 2 characters!';
+            }
             elseif (!filter_var("$email", FILTER_VALIDATE_EMAIL)) // email validation
             {
                 $result_msg['error'] = 'Invalid email format!';

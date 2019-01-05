@@ -7,11 +7,10 @@ use application\lib\Validator;
 
 abstract class Controller
 {
-
-	public $route;
-	public $view;
-	public $model;
-	public $validator; //
+	private $route;
+	protected $view;
+	protected $model;
+	protected $validator;
 
 	public function __construct($route)
     {
@@ -21,7 +20,7 @@ abstract class Controller
 		$this->validator = new Validator();
 	}
 
-	public function loadModel($name)
+	private function loadModel($name)
     {
 		$path = 'application\models\\'.ucfirst($name);
 		if (class_exists($path))
