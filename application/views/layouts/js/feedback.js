@@ -8,11 +8,11 @@ function feedback_valid(form) {
 
     if (name && email && message) {
         if (name.length < 2) {
-            alert('The name is less than 2 symbols');
+            alert('Name is less than 2 symbols');
             return false;
         }
         else if (message.length < 2) {
-            alert('The message is less than 2 symbols');
+            alert('Message is less than 2 symbols');
             return false;
         }
     } else {

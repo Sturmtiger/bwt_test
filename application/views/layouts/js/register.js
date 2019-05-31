@@ -9,19 +9,27 @@ function reg_valid(form) {
 
     if (name && surname && email && password && cpassword) {
         if (name.length < 2) {
-            alert('The name is less than 2 symbols!');
+            alert('Name is less than 2 symbols!');
+            return false;
+        }
+        else if (name.length > 30) {
+            alert('Name is more than 30 symbols!');
             return false;
         }
         else if (surname.length < 2) {
-            alert('The surname is less than 2 symbols!');
+            alert('Surname is less than 2 symbols!');
+            return false;
+        }
+        else if (surname.length > 30) {
+            alert('Surname is more than 2 symbols!');
             return false;
         }
         else if (password.length < 10) {
-            alert('The password is less than 10 symbols!')
+            alert('Password is less than 10 symbols!')
             return false;
         }
         else if (password != cpassword) {
-            alert('The passwords do not match!');
+            alert('Passwords do not match!');
             return false;
         }
 
